@@ -8,7 +8,7 @@
 
 ## From Blockchain to Machine Learning Local Silicon
 
-### Phase 1: Midnight City & the Privacy Layer ([Midnight City](https://midnight.city/))
+### Phase 1: Midnight City & The Privacy Layer ([Midnight City](https://midnight.city/))   
 
 It started in **Midnight City** — the simulation and stress-test environment for **Midnight**, Cardano's zero-knowledge privacy partner chain. A separate Layer 1 built by IOG, using ZK-SNARKs for *rational privacy*: not full anonymity, but selective disclosure. You choose what's visible and what stays hidden. The core idea: a system where identity and data flow through a chain that *protects* the user rather than exposing them.
 
