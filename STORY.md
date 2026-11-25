@@ -3,4 +3,4 @@
 
 ## The Story
 
-[From Blockchain to LLM Local Silicon](STORY.md)   
+[From Blockchain to Machine Learning Local Silicon](STORY.md)   
