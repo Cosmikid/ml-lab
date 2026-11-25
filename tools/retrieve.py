@@ -6,9 +6,10 @@ Usage:
 
 The web UI can call this and inject the results as context for Z3PO.
 """
-import sys
-import os
+
 import argparse
+import os
+
 import chromadb
 
 DB_DIR = os.path.join(os.path.dirname(__file__), "..", "checkpoints", "vector_db")
@@ -26,6 +27,7 @@ def retrieve(query: str, top_k: int = 5) -> list[dict]:
         return []
 
     from ollama import Client
+
     client = Client(host="http://localhost:11434")
     resp = client.embeddings(model="nomic-embed-text", prompt=query)
 
@@ -38,12 +40,12 @@ def retrieve(query: str, top_k: int = 5) -> list[dict]:
         {
             "text": doc,
             "source": meta.get("source", "unknown"),
-            "score": 1.0 - dist,
+            "score": 1.0 / (1.0 + dist),
         }
         for doc, meta, dist in zip(
-            results["documents"][0],
-            results["metadatas"][0],
-            results["distances"][0],
+            results["documents"][0],  # type: ignore
+            results["metadatas"][0],  # type: ignore
+            results["distances"][0],  # type: ignore
         )
     ]
 
@@ -54,7 +56,9 @@ def format_context(results: list[dict]) -> str:
         return "(no relevant context found)"
     blocks = []
     for i, r in enumerate(results, 1):
-        blocks.append(f"[{i}] (source: {r['source']}, relevance: {r['score']:.3f})\n{r['text']}")
+        blocks.append(
+            f"[{i}] (source: {r['source']}, relevance: {r['score']:.3f})\n{r['text']}"
+        )
     return "\n\n---\n\n".join(blocks)
 
 
