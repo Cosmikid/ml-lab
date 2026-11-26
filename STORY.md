@@ -31,7 +31,7 @@ This was the turning point. We had a working agent, a secure transport, and a cl
 
 ### Phase 3: The LLM Experimentation Phase — One box. One agent. No cloud. No subscription. Just code and silicon.
 
-With all the research and documentation at my fingertips. The next question was obvious: *Can I build this on my own?*
+With all the research and documentation at my fingertips. The next question was obvious: *Can I build an agent on my own?*
 
 I started experimenting with various LLMs and Agents — cloud-based, API-driven, subscription-locked, compatible software to the hardware and finally the cost related to input/output tokenomics. Each one worked, but each one had the same fundamental problem: your data leaves your machine and cost. For a project built on privacy principles, that was a dealbreaker.
 
