@@ -32,6 +32,7 @@ def generate(query: str, top_k: int = 5) -> str:
             {"role": "system", "content": SYSTEM_PROMPT.format(context=context)},
             {"role": "user", "content": query},
         ],
+        options={"num_ctx": 4096, "temperature": 0.1},
     )
     return response["message"]["content"]
 

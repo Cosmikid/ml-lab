@@ -69,7 +69,9 @@ def ingest(directory: str | None = None):
 
     os.makedirs(DB_DIR, exist_ok=True)
     chroma = chromadb.PersistentClient(path=DB_DIR)
-    collection = chroma.get_or_create_collection("wiki")
+    collection = chroma.get_or_create_collection(
+        "wiki", metadata={"hnsw:space": "cosine"}
+    )
 
     files = []
     for ext in (".md", ".txt", ".rst", ".html"):
