@@ -11,6 +11,7 @@ import argparse
 import os
 
 import chromadb
+from ollama import Client
 
 DB_DIR = os.path.join(os.path.dirname(__file__), "..", "checkpoints", "vector_db")
 
@@ -25,8 +26,6 @@ def retrieve(query: str, top_k: int = 5) -> list[dict]:
 
     if collection.count() == 0:
         return []
-
-    from ollama import Client
 
     client = Client(host="http://localhost:11434")
     resp = client.embeddings(model="nomic-embed-text", prompt=query)
