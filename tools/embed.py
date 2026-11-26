@@ -1,6 +1,8 @@
 """Ingest wiki/text files into a vector store for Z3PO retrieval."""
-import sys
+
 import os
+import sys
+
 import chromadb
 from ollama import Client
 
@@ -12,7 +14,7 @@ def get_client():
     return Client(host=OLLAMA_URL)
 
 
-def chunk_text(text: str, max_chars: int = 1500) -> list[str]:
+def chunk_text(text: str, max_chars: int = 800) -> list[str]:
     """Split text into chunks by paragraph, respecting max length."""
     paragraphs = text.split("\n\n")
     chunks = []
@@ -35,7 +37,7 @@ def embed_file(filepath: str, collection):
 
     chunks = chunk_text(text)
     if not chunks:
-        print(f"  (empty, skipping)")
+        print("  (empty, skipping)")
         return 0
 
     # Embed via Ollama
@@ -56,7 +58,7 @@ def embed_file(filepath: str, collection):
     return len(chunks)
 
 
-def ingest(directory: str = None):
+def ingest(directory: str | None = None):
     """Ingest all .md, .txt, .rst files from a directory."""
     if directory is None:
         directory = os.path.join(os.path.dirname(__file__), "..", "data")

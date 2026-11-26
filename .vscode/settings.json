@@ -1,7 +1,9 @@
 {
   "python.defaultInterpreterPath": "./.venv/bin/python",
   "python.testing.pytestEnabled": true,
-  "python.testing.pytestArgs": ["tests/"],
+  "python.testing.pytestArgs": [
+    "tests/"
+  ],
   "files.exclude": {
     "**/__pycache__": true,
     "**/.pytest_cache": true,
@@ -9,4 +11,3 @@
     "**/*.egg-info": true
   }
 }
-EOF   
