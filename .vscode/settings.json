@@ -1,13 +1,54 @@
 {
+  "workbench.editor.empty.hint": "hidden",
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 1000,
+  "editor.formatOnSave": true,
+  "editor.stickyScroll.enabled": true,
+  "workbench.editor.enablePreview": false,
+  "workbench.localHistory.enabled": true,
+  "editor.rulers": [
+    88
+  ],
+  "terminal.integrated.defaultProfile.linux": "bash",
+  "terminal.integrated.fontSize": 14,
+  "terminal.integrated.scrollback": 10000,
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "python.terminal.activateEnvironment": true,
+  "python.analysis.typeCheckingMode": "off",
   "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
   "python.testing.pytestEnabled": true,
   "python.testing.pytestArgs": [
     "tests/"
   ],
+  "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "editor.codeActionsOnSave": {
+      "source.fixAll.ruff": "explicit",
+      "source.organizeImports.ruff": "explicit"
+    }
+  },
   "files.exclude": {
     "**/__pycache__": true,
     "**/.pytest_cache": true,
     "**/checkpoints": true,
     "**/*.egg-info": true
-  }
+  },
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/__pycache__/**": true,
+    "**/.venv/**": true,
+    "**/checkpoints/**": true
+  },
+  "search.exclude": {
+    "**/data/**": true,
+    "**/checkpoints/**": true,
+    "**/*.parquet": true,
+    "**/*.pkl": true
+  },
+  "chat.disableAIFeatures": true,
+  "github.copilot.enable": {
+    "*": false
+  },
+  "workbench.colorTheme": "Tokyo Night"
 }
