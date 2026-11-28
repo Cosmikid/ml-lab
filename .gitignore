@@ -8,3 +8,4 @@ checkpoints/
 *.h5
 EOF   
 checkpoints/vector_db/
+checkpoints/
